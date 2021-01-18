@@ -1,0 +1,8 @@
+{
+  "name": "expert maintenance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "d88b0c91"
+}
