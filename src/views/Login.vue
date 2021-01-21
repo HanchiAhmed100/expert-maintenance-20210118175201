@@ -1,9 +1,20 @@
 <template>
-    <ion-page >
-        <ion-grid class="flex_all">
-                <ion-spinner class="flex_all" name="circles" v-if="loading"></ion-spinner>
+    <ion-page>
+        <ion-header>    
+            <ion-toolbar>
+                <ion-title>Expert Maintenance </ion-title>
+            </ion-toolbar>
+        </ion-header>
 
-                <ion-row class="ion-align-items-center" v-if="!loading" >
+        <div class="flex_all" v-if="loading">
+            <ion-spinner  name="circles"></ion-spinner>
+        </div>
+
+        <ion-grid class="flex_all" v-else>
+                <ion-img  class="img" src="/assets/landing2.svg" ></ion-img>
+
+
+                <ion-row class="ion-align-items-center margin-top" >
                     <ion-col>
                         <ion-item>
                             <ion-label position="floating">Login</ion-label>
@@ -13,15 +24,16 @@
                             <ion-label position="floating">Mot de passe</ion-label>
                             <ion-input v-model="password"></ion-input>
                         </ion-item>
+                        <br>
+                        <ion-text v-if="error" class="red ion-text-center margin-top "> Login ou mot de passe incorrecte </ion-text>
                     </ion-col>
 
                 </ion-row>
-                <ion-row class="ion-align-items-center" v-if="!loading">
+                <ion-row class="ion-align-items-center">
                     <ion-col>                    
-                        <ion-button class="ion-text-center"  expand="block" shape="round" color="light" v-on:click="auth">LOGIN</ion-button>
+                        <ion-button class="ion-text-center margin-top"  expand="block" shape="round" color="light"   v-on:click="auth">LOGIN</ion-button>
                     </ion-col>
 
-                    <ion-text v-if="error"> Login ou mot de passe incorrecte </ion-text>
                 </ion-row>
                 
         </ion-grid>
@@ -29,7 +41,7 @@
 
 </template>
 <script lang="js">
-import { IonPage ,IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton ,IonSpinner , IonText} from '@ionic/vue';
+import {  IonHeader,IonTitle ,IonToolbar,IonPage ,IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton ,IonSpinner , IonText} from '@ionic/vue';
 
 import { Plugins } from '@capacitor/core';
 
@@ -39,7 +51,7 @@ const { Storage } = Plugins;
 
 export default {
     name: 'Login',
-    components: {  IonPage, IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton, IonSpinner , IonText} ,
+    components: { IonHeader,IonTitle ,IonToolbar, IonPage, IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton, IonSpinner , IonText} ,
     data () {
         return{
             loading : false,
@@ -51,7 +63,7 @@ export default {
     methods: {
         auth : async function (){
             this.loading = true
-            await axios.post('https://maintenance-expert.herokuapp.com/api/employe/login',{
+            await axios.post('http://localhost:8081/api/employe/login',{
                 login : this.login,
                 password : this.password
             })
@@ -66,6 +78,7 @@ export default {
             .catch( err => {
                 console.log(err)
             })
+            this.loading = false
         },
 
         setStorageData : async function (data) {
@@ -89,6 +102,19 @@ export default {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.img{
+    width: 175px;
+    height: 175px;
+}
+.margin-top{
+    margin-top: 25px;
+}
+.padding{
+    padding: 10px;
+}
+.red{
+    color: red;
 }
 </style>
 
