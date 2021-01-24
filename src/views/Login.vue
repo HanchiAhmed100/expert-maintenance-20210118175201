@@ -1,4 +1,5 @@
 <template>
+<ion-content>
     <ion-page>
         <ion-header>    
             <ion-toolbar>
@@ -38,7 +39,7 @@
                 
         </ion-grid>
     </ion-page>
-
+<ion-content>
 </template>
 <script lang="js">
 import {  IonHeader,IonTitle ,IonToolbar,IonPage ,IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton ,IonSpinner , IonText} from '@ionic/vue';

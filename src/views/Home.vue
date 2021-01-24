@@ -1,4 +1,5 @@
 <template>
+<ion-content>
     <ion-page>
         <ion-header>  
             <ion-toolbar>
@@ -20,9 +21,8 @@
                 </ion-list>
             </ion-row>
         </ion-grid>
-        
-
     </ion-page>
+</ion-content>
 </template>
 
 <script>

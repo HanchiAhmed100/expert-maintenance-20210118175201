@@ -1,4 +1,5 @@
 <template>
+<ion-content>
   <ion-page>
         <ion-header>  
             <ion-toolbar>
@@ -87,9 +88,8 @@
                 </ion-card-content>
             </ion-card>
         </ion-content>
-        
-
     </ion-page>
+</ion-content>
 </template>
 
 <script>
