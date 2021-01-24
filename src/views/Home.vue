@@ -13,11 +13,6 @@
             
             <ion-row class="ion-align-items-center">
                 <ion-list>  
-                    <ion-list-header>
-                        <ion-label>New This Week</ion-label>
-                        <ion-button fill="outline">See All</ion-button>
-                    </ion-list-header>
-
                     <ion-item v-for="i in interventions.interventions" :key="i.id" v-on:click="goToInformation(i.id)">
                         <ion-label class="mytext">Titre : {{i.titre}} <br>Date Debut Plannifier : {{ formateDate(i.dateplanification) }}<br> Date Fin Plannifier : {{ formateDate(i.dateterminaison) }} </ion-label>
                         <!-- <ion-checkbox color="secondary"  slot="end"></ion-checkbox> -->
@@ -31,8 +26,7 @@
 </template>
 
 <script>
-import {IonButton,IonListHeader ,IonMenuButton,IonGrid,IonRow, IonPage,IonToolbar,IonTitle ,IonButtons,IonHeader, IonList ,IonItem ,IonLabel } from '@ionic/vue';
-
+import { IonMenuButton,IonGrid,IonRow, IonPage,IonToolbar,IonTitle ,IonButtons,IonHeader, IonList ,IonItem ,IonLabel } from '@ionic/vue';
 import { Plugins } from '@capacitor/core';
 import axios from 'axios';
 const { Storage } = Plugins;
@@ -41,7 +35,7 @@ import moment from 'moment';
 
 export default {
     name: 'Login',
-    components: {IonButton,IonListHeader,IonGrid,IonRow, IonMenuButton, IonPage ,IonToolbar,IonHeader,IonTitle,IonButtons,IonList ,IonItem,IonLabel },
+    components: { IonGrid,IonRow, IonMenuButton, IonPage ,IonToolbar,IonHeader,IonTitle,IonButtons,IonList ,IonItem,IonLabel },
     data () {
         return {
             id : '',
@@ -57,8 +51,6 @@ export default {
             this.$router.push('Login') 
         }
         this.employe = JSON.parse(user) 
-        
-
         console.log(JSON.parse(user))
         this.loadInterventions()
       
@@ -76,6 +68,7 @@ export default {
             return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
         },
         goToInformation : function(id){
+            console.log(id)
             this.$router.push({ name : 'Informations' , params : {id : id}}) 
         }
     },

@@ -22,7 +22,7 @@
                         </ion-item>
                         <ion-item>
                             <ion-label position="floating">Mot de passe</ion-label>
-                            <ion-input v-model="password"></ion-input>
+                            <ion-input v-model="password" type="password"></ion-input>
                         </ion-item>
                         <br>
                         <ion-text v-if="error" class="red ion-text-center margin-top "> Login ou mot de passe incorrecte </ion-text>
@@ -58,6 +58,13 @@ export default {
             login : '',
             password : '',
             error : false
+        }
+    },
+    async mounted (){
+        const ret =  await Storage.get({ key: 'employe' });
+        const user = ret.value;
+        if(user){
+            this.$router.push('Home') 
         }
     },
     methods: {
