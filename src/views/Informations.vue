@@ -135,7 +135,7 @@ export default {
         loadIntervention : async function () {
             
             console.log(this.id)
-            await axios.get(`http://localhost:8081/api/intervention/${this.id}`)
+            await axios.get(`https://maintenance-expert.herokuapp.com/api/intervention/${this.id}`)
             .then( res =>{
                 console.log(res.data)
                 this.intervention = res.data
@@ -149,7 +149,7 @@ export default {
             })
         },
         loadClient : async function (id) {
-            await axios.get(`http://localhost:8081/api/client/${id}`)
+            await axios.get(`https://maintenance-expert.herokuapp.com/api/client/${id}`)
             .then( res =>{
                 console.log(res.data)
                 this.client = res.data

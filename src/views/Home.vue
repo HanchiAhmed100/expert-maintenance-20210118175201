@@ -57,7 +57,7 @@ export default {
     },
     methods : {
         loadInterventions : async function(){
-            await axios.get(`http://localhost:8081/api/employe/interventions/${this.employe.id}`)
+            await axios.get(`https://maintenance-expert.herokuapp.com/api/employe/interventions/${this.employe.id}`)
             .then(res => { 
                 console.log(res)
                 this.interventions = res.data

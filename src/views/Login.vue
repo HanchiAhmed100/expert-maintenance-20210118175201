@@ -60,17 +60,17 @@ export default {
             error : false
         }
     },
-    async mounted (){
-        const ret =  await Storage.get({ key: 'employe' });
-        const user = ret.value;
-        if(user){
-            this.$router.push('Home') 
-        }
-    },
+    // async mounted (){
+    //     const ret =  await Storage.get({ key: 'employe' });
+    //     const user = ret.value;
+    //     if(user){
+    //         this.$router.push('Home') 
+    //     }
+    // },
     methods: {
         auth : async function (){
             this.loading = true
-            await axios.post('http://localhost:8081/api/employe/login',{
+            await axios.post('https://maintenance-expert.herokuapp.com/api/employe/login',{
                 login : this.login,
                 password : this.password
             })
