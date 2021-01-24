@@ -1,6 +1,7 @@
 <template>
-<ion-content>
     <ion-page>
+        <ion-content>
+
         <ion-header>    
             <ion-toolbar>
                 <ion-title>Expert Maintenance </ion-title>
@@ -38,11 +39,12 @@
                 </ion-row>
                 
         </ion-grid>
+        </ion-content>
+
     </ion-page>
-<ion-content>
 </template>
 <script lang="js">
-import {  IonHeader,IonTitle ,IonToolbar,IonPage ,IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton ,IonSpinner , IonText} from '@ionic/vue';
+import { IonContent, IonHeader,IonTitle ,IonToolbar,IonPage ,IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton ,IonSpinner , IonText} from '@ionic/vue';
 
 import { Plugins } from '@capacitor/core';
 
@@ -52,7 +54,7 @@ const { Storage } = Plugins;
 
 export default {
     name: 'Login',
-    components: { IonHeader,IonTitle ,IonToolbar, IonPage, IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton, IonSpinner , IonText} ,
+    components: { IonContent,IonHeader,IonTitle ,IonToolbar, IonPage, IonLabel, IonInput, IonItem , IonCol, IonGrid, IonRow ,IonButton, IonSpinner , IonText} ,
     data () {
         return{
             loading : false,
@@ -114,6 +116,7 @@ export default {
 .img{
     width: 175px;
     height: 175px;
+    margin-top: 100px;
 }
 .margin-top{
     margin-top: 25px;

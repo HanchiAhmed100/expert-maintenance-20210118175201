@@ -1,6 +1,7 @@
 <template>
-<ion-content>
   <ion-page>
+      <ion-content>
+
         <ion-header>  
             <ion-toolbar>
                 <ion-buttons slot="start">
@@ -88,8 +89,9 @@
                 </ion-card-content>
             </ion-card>
         </ion-content>
+        </ion-content>
+
     </ion-page>
-</ion-content>
 </template>
 
 <script>
