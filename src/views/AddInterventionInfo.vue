@@ -1,6 +1,5 @@
 <template>
   <ion-page>
-      <ion-content>
 
         <ion-header>  
             <ion-toolbar>
@@ -10,8 +9,9 @@
                 <ion-title>Edit Intervention</ion-title>
             </ion-toolbar>
         </ion-header>
+    <ion-content>
 
-
+    
         <ion-content>
      
 

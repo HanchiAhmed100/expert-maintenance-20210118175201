@@ -1,6 +1,5 @@
 <template>
   <ion-page>
-      <ion-content>
 
         <ion-header>  
             <ion-toolbar>
@@ -11,6 +10,8 @@
                 <ion-title>Detail Interventions</ion-title>
             </ion-toolbar>
         </ion-header>
+    <ion-content>
+
         <ion-content>
             <ion-item v-if="!intervention.terminee">
                 <ion-label>Terminer :</ion-label>
